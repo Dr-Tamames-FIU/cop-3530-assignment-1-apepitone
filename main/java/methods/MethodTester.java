@@ -1,5 +1,8 @@
 public class MethodTester
 {
+    private static final int[] A = null;
+
+
     public static void main(String[] args) 
     {
         int[] nums = {-1, 5, -1, 3, -1, 17};
@@ -11,17 +14,22 @@ public class MethodTester
         System.out.println("Max sum: " + result);
     }
 
+   
     public static int algorithm1(int[] nums) 
     {
         int maxSum = 0;
        
-        //TODO
-
-        //loop
-            
-        //loop
-                
-        //loop
+        int n = nums.length;
+       
+        for (int len = 1; len <= n; len++) {
+            for (int i = 0; i <= n - len; i++) {
+                int currentSum = 0;
+                for (int j = i; j < i + len; j++) {
+                    currentSum += nums[j];
+                }
+                maxSum = Math.max(maxSum, currentSum);
+            }
+        }
         return maxSum;
     }
 
@@ -30,10 +38,13 @@ public class MethodTester
     {
         int maxSum = 0;
         
-        //TODO
-        
-        //loop
+        int currentSum = 0;
 
+    for (int i = 0; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+        
         return maxSum;
     }
 
@@ -43,8 +54,18 @@ public class MethodTester
     {
         int maxSum = 0;
        
-        //TODO
+        int currentSum = 0;
+    int n = nums.length;
+
+    for (int i = 0; i < n; i++) {
+        currentSum += nums[i];
+        maxSum = Math.max(maxSum, currentSum);
+        if (currentSum < 0) {
+            currentSum = 0;
+        }
+    }
 
         return maxSum;
     }
+
 }

@@ -30,8 +30,11 @@ public class RuntimeAnalyzer {
     public static int[] GenerateArray (int arraySize)
     {
         int[] array = new int[arraySize];
-       
-        //TODO
+       Random random = new Random();
+
+        for (int i = 0; i < arraySize; i++) {
+            array[i] = random.nextInt(110) - 10; // Generates a random number between -10 and 99
+        }
 
         return array;
     }
